@@ -61,6 +61,9 @@
     
     if (childVCArray.count == 0 || titleArray.count == 0 || childVCArray.count != titleArray.count) return;
     
+    
+    [self.childViewControllers makeObjectsPerformSelector:@selector(removeFromParentViewController)];
+    
     for (UIViewController *childVC in childVCArray) {
         
         [self addChildViewController:childVC];
