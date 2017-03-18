@@ -81,8 +81,9 @@
 - (void)segmentBar:(QBSegmentBar *)segmentBar didSelectItemFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
  
     UIViewController *newVC = self.childViewControllers[toIndex];
-    newVC.view.frame = self.contentScroll.bounds;
+    newVC.view.frame = CGRectMake(toIndex *self.contentScroll.QB_width, 0, self.contentScroll.QB_width, self.contentScroll.QB_height);
     [self.contentScroll addSubview:newVC.view];
+    [self.contentScroll setContentOffset:CGPointMake(toIndex *self.contentScroll.QB_width, 0) animated:YES];
     
 }
 
